@@ -32,11 +32,22 @@ function genId() {
 type ActionType = (typeof actionTypes)[keyof typeof actionTypes];
 
 type Action =
-  | { type: typeof actionTypes.ADD_TOAST; toast: ToasterToast }
-  | { type: typeof actionTypes.UPDATE_TOAST; toast: Partial<ToasterToast> }
-  | { type: typeof actionTypes.DISMISS_TOAST; toastId?: ToasterToast["id"] }
-  | { type: typeof actionTypes.REMOVE_TOAST; toastId?: ToasterToast["id"] };
-
+  | {
+      type: typeof actionTypes.ADD_TOAST;
+      toast: ToasterToast;
+    }
+  | {
+      type: typeof actionTypes.UPDATE_TOAST;
+      toast: Partial<ToasterToast>;
+    }
+  | {
+      type: typeof actionTypes.DISMISS_TOAST;
+      toastId?: ToasterToast["id"];
+    }
+  | {
+      type: typeof actionTypes.REMOVE_TOAST;
+      toastId?: ToasterToast["id"];
+    };
 interface State {
   toasts: ToasterToast[];
 }
